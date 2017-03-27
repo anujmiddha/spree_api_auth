@@ -1,10 +1,8 @@
-Spree::Core::Engine.routes.prepend do
-  namespace :api do
-    scope :module => :v1 do
-      namespace :users do
-        post   :sign_up
-        post   :sign_in
-      end
+Spree::Core::Engine.add_routes do
+  namespace :api, defaults: {format: 'json'} do
+    resource :users do
+      post :sign_up
+      post :sign_in
     end
   end
 end
